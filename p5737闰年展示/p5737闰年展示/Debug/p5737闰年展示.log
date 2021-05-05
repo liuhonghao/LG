@@ -1,0 +1,10 @@
+﻿生成启动时间为 2021/5/5 19:24:02。
+     1>项目“E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\p5737闰年展示\p5737闰年展示.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         G:\JixTs1\JixTC\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\Debug\p5737闰年展示.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\Debug\p5737闰年展示.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\Debug\p5737闰年展示.lib" /MACHINE:X86 Debug\T.obj
+         p5737闰年展示.vcxproj -> E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\Debug\p5737闰年展示.exe
+     1>已完成生成项目“E:\学习路线\算法学习\题解\洛谷\函数与结构体\p5737闰年展示\p5737闰年展示\p5737闰年展示.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.31
