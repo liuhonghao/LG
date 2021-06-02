@@ -1,49 +1,27 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-/*#include <bits/stdc++.h>
+# include <bits/stdc++.h>
+const int MAX = 5050;
 using namespace std;
-
-int num[10];
+int a[MAX];
+int f(int n)
+{
+	if (a[n] != -1) return a[n];
+	else
+	{
+		a[n] = f(n - 1) + f(n - 2);
+		return a[n];
+	}
+}
 int main()
 {
-	int n, m;
-	cin >> n >> m;
-	for (int i = n; i <= m; i++)
-	{
-		for (int temp = i; temp; temp /= 10)
-		{
-			num[temp % 10]++;
-		}
+	int n;
+	cin >> n;
+	for (int i = 0; i <= MAX - 1; i++)
+	{//³õÊ¼»¯ 
+		a[i] = -1;
 	}
-	for (int i = 0; i <= 9; i++)
-	{
-		cout << num[i] << ' ';
-	}
-	return 0;
-}*/
-
-#include <bits/stdc++.h>
-using namespace std;
-
-const int N = 1010;
-int js[N];
-int n, m;
-int main()
-{
-	cin >> n >> m;
-	for (int i = n; i <= m; i++)
-	{
-		int j = i;
-		while (j > 0)
-		{
-			js[j % 10]++;
-
-			j /= 10;
-		}
-	}
-	for (int i = 0; i <= 9; i++)
-	{
-		cout << js[i] << ' ';
-	}
+	a[0] = 1; a[1] = 1;
+	cout << f(n) << endl;
 	return 0;
 }
