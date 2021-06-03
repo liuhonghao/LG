@@ -1,59 +1,88 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include <iostream>
-#include <cstdio>
 #include <algorithm>
-
+#include <cstring>
+#include <queue>
 using namespace std;
 
-const int N = 1e6 + 10;
-int q[N];
+int dx[4] = { 1, 0, -1, 0 }, dy[4] = { 0, 1, 0, -1 };
+typedef pair<int, int>PII;
+#define fi first
+#define sc second
+const int N = 10000;
+int n, m;
+char g[N][N];
+int ans;
+bool st[N][N];
+bool vis[N];
+queue<PII>q;
 
-/*int binarySearch(int q[], int l, int r, int k)
+void DFS(int row, int num)
 {
-	if (l == r)
+	if (num == m)
 	{
-		if (q[l] == k)
-		{
-			return l;
-		}
-		else return -1;
+		ans++;
+		return;
 	}
-	int mid = l + r >> 1;
-	if (k <= q[mid])//最中间的数大于k k在左边;
+	if (row > n)
 	{
-		binarySearch(q, l, mid, k);
+		return;
 	}
-	else
-	{
-		binarySearch(q, mid + 1, r, k);
-	}
-}*/
-
-int binarySearch(int q[], int l, int r, int k)
-{
-	while (l < r)
-	{
-		int mid = l + r >> 1;
-		if (k <= q[mid]) r = mid;
-		else l = mid + 1;
-	}
-	if (q[l] == k) return l;
-	else return -1;
-}
-int main()
-{
-	int n, m;
-	cin >> n >> m;
 	for (int i = 1; i <= n; i++)
 	{
-		cin >> q[i];
+		if (st[row][i] && !vis[i])
+		{
+			vis[i] = true;
+			DFS(row + 1, num + 1);
+			vis[i] = false;
+		}
 	}
-	while (m--)
+	DFS(row + 1, num);
+	return;
+}
+/*int bfs(int tx, int ty)
+{
+	q.push({ tx, ty });
+	q.pop();
+	int cnt = 0;
+	while (!q.empty())
 	{
-		int k;
-		cin >> k;
-		cout << binarySearch(q, 1, n, k) << ' ';
+		for (int i = 0; i < n; i++)
+		{
+			int x = tx + dx[i];
+			int y = tx + dy[i];
+			q.push({ x, y });
+		}
 	}
+	return cnt;
+}*/
+int main()
+{
+	while (cin >> n >> m&&n != -1 && m != -1)
+	{
+		memset(st, false, sizeof(st));
+		memset(vis, false, sizeof(vis));
+		int idx = 0, idy = 0;
+		ans = 0;
+		for (int i = 1; i <=n; i++)
+		{
+			for (int j = 1; j <= m; j++)
+			{
+				cin >> g[i][j];
+				if (g[i][j] == '#')
+				{
+					idx = i;
+					idy = j;
+					st[i][j] = true;
+					continue;
+				}
+			}
+		}
+		DFS(1, 0);
+		cout << ans << endl;
+		//cout << bfs(idx, idy) << endl;
+	}
+
 	return 0;
 }
